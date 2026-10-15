@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vận Chuyển Kiến Vàng - hỗ trợ vận chuyển hàng hóa, chuyển nhà, chuyển văn phòng. Liên hệ Zalo để nhận tư vấn và báo giá.">
+  <meta name="theme-color" content="#f5b51b">
+  <title>Vận Chuyển Kiến Vàng | Vận chuyển nhanh chóng, tận tâm</title>
+  <style>
+    :root {
+      --yellow: #f5b51b;
+      --yellow-dark: #dc9700;
+      --ink: #202020;
+      --muted: #686868;
+      --cream: #fff9e9;
+      --white: #fff;
+      --green: #087d48;
+      --shadow: 0 14px 36px rgba(30, 25, 10, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); line-height: 1.6; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(1140px, calc(100% - 40px)); margin: auto; }
+    .topbar { background: #242424; color: #fff; font-size: 14px; padding: 8px 0; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    header { background: #fff; position: sticky; top: 0; z-index: 10; box-shadow: 0 3px 15px rgba(0,0,0,.06); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 900; font-size: 21px; line-height: 1.1; }
+    .brand-mark { width: 45px; height: 45px; border-radius: 13px; display: grid; place-items: center; background: var(--yellow); color: #202020; font-size: 25px; }
+    .brand small { display: block; font-size: 11px; letter-spacing: 1.6px; margin-top: 5px; color: #777; }
+    .nav-links { display: flex; align-items: center; gap: 25px; font-size: 14px; font-weight: 700; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 20px; border-radius: 9px; font-weight: 800; border: 0; cursor: pointer; transition: .2s; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(.97); }
+    .btn-yellow { background: var(--yellow); color: #191919; box-shadow: 0 8px 20px rgba(245,181,27,.25); }
+    .btn-dark { background: #222; color: #fff; }
+    .btn-zalo { background: var(--green); color: #fff; }
+    .hero { overflow: hidden; background: linear-gradient(115deg, #fff9e9 0%, #fff 58%, #fff1c5 100%); padding: 70px 0 55px; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 45px; }
+    .eyebrow { display: inline-block; padding: 7px 12px; background: #ffedb7; border-radius: 999px; font-size: 12px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+    h1 { font-size: clamp(36px, 4.5vw, 57px); line-height: 1.08; letter-spacing: -1.7px; margin: 18px 0; }
+    h1 span { color: var(--yellow-dark); }
+    .hero p { color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 0 25px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .trust-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 27px; font-size: 13px; font-weight: 700; color: #555; }
+    .trust-row span::before { content: "✓"; color: var(--green); font-weight: 900; margin-right: 7px; }
+    .hero-visual { position: relative; }
+    .hero-visual img { width: 100%; border-radius: 20px; object-fit: contain; background: #fff; box-shadow: var(--shadow); }
+    .hero-note { position: absolute; left: -18px; bottom: 18px; background: #222; color: #fff; padding: 14px 18px; border-radius: 12px; box-shadow: var(--shadow); }
+    .hero-note strong { display: block; color: var(--yellow); font-size: 17px; }
+    .hero-note small { color: #eee; }
+    .stats { padding: 23px 0; background: var(--yellow); }
+    .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); text-align: center; gap: 20px; }
+    .stat strong { display: block; font-size: 18px; }
+    .stat span { font-size: 13px; }
+    section { padding: 76px 0; }
+    .section-head { max-width: 690px; margin: 0 auto 38px; text-align: center; }
+    .section-head h2 { font-size: clamp(28px, 3vw, 39px); line-height: 1.2; margin: 12px 0; letter-spacing: -.8px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .services { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .service-card { padding: 27px; border: 1px solid #eee; border-radius: 16px; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.035); }
+    .service-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: #fff1c5; font-size: 25px; margin-bottom: 17px; }
+    .service-card h3 { margin: 0 0 8px; font-size: 19px; }
+    .service-card p { color: var(--muted); margin: 0; font-size: 14px; }
+    .fleet { background: #f8f8f8; }
+    .fleet-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .truck-card { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+    .truck-card img { width: 100%; height: 275px; object-fit: contain; padding: 15px; background: #fff; }
+    .truck-info { padding: 22px 25px 26px; }
+    .truck-info h3 { margin: 0 0 7px; }
+    .truck-info p { margin: 0; color: var(--muted); font-size: 14px; }
+    .why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 45px; align-items: center; }
+    .why-panel { background: var(--cream); border-radius: 20px; padding: 30px; }
+    .why-panel h2 { font-size: 34px; line-height: 1.15; margin: 0 0 14px; }
+    .why-panel p { color: var(--muted); margin-bottom: 0; }
+    .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .benefit { padding: 18px; border: 1px solid #eee; border-radius: 13px; }
+    .benefit strong { display: block; margin-bottom: 5px; }
+    .benefit span { color: var(--muted); font-size: 14px; }
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; counter-reset: step; }
+    .step { padding: 25px; border-radius: 15px; background: #fff; border: 1px solid #eee; }
+    .step::before { counter-increment: step; content: "0" counter(step); display: block; color: var(--yellow-dark); font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+    .step h3 { margin: 0 0 7px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .cta { background: #242424; color: #fff; padding: 60px 0; }
+    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .cta h2 { font-size: clamp(27px, 3vw, 38px); line-height: 1.2; margin: 0 0 10px; }
+    .cta p { color: #ddd; margin: 0; }
+    .contact { background: #fff9e9; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; align-items: start; }
+    .contact-card { background: #fff; border-radius: 17px; padding: 28px; box-shadow: var(--shadow); }
+    .contact-card h3 { margin-top: 0; }
+    .contact-line { padding: 12px 0; border-bottom: 1px solid #eee; }
+    .contact-line:last-child { border-bottom: 0; }
+    form { display: grid; gap: 13px; }
+    input, select, textarea { width: 100%; padding: 13px 14px; border: 1px solid #ddd; border-radius: 9px; font: inherit; outline: none; background: #fff; }
+    input:focus, select:focus, textarea:focus { border-color: var(--yellow-dark); box-shadow: 0 0 0 3px rgba(245,181,27,.15); }
+    textarea { min-height: 95px; resize: vertical; }
+    .form-hint { font-size: 12px; color: #777; margin: 0; }
+    footer { padding: 24px 0; background: #171717; color: #ccc; font-size: 13px; text-align: center; }
+    .floating-zalo { position: fixed; right: 18px; bottom: 18px; z-index: 20; border-radius: 999px; padding: 14px 18px; background: var(--green); color: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.22); font-weight: 800; }
+    @media (max-width: 850px) {
+      .nav-links a:not(.btn) { display: none; }
+      .hero { padding-top: 45px; }
+      .hero-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-visual { max-width: 650px; margin: 0 auto; }
+      .services { grid-template-columns: 1fr 1fr; }
+      .why-grid { gap: 25px; }
+      .cta-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 28px, 1140px); }
+      .topbar-inner { justify-content: center; text-align: center; }
+      .nav { min-height: 68px; gap: 10px; }
+      .brand { font-size: 17px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .nav-links { gap: 0; }
+      .nav-links .btn { padding: 10px 12px; font-size: 12px; }
+      h1 { letter-spacing: -1px; }
+      .hero p { font-size: 15px; }
+      .hero-note { left: 8px; bottom: 8px; padding: 10px 13px; }
+      .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+      section { padding: 55px 0; }
+      .services, .fleet-grid, .benefits, .steps { grid-template-columns: 1fr; }
+      .truck-card img { height: 220px; }
+      .floating-zalo { right: 12px; bottom: 12px; padding: 12px 15px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>VẬN CHUYỂN KIẾN VÀNG — Tận tâm trong từng chuyến hàng</span>
+      <span>Liên hệ Zalo: <strong>0969 563 566</strong></span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#trang-chu" aria-label="Vận Chuyển Kiến Vàng - Trang chủ">
+        <span class="brand-mark">K</span>
+        <span>VẬN CHUYỂN KIẾN VÀNG<small>AN TÂM TRÊN MỌI HÀNH TRÌNH</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng chính">
+        <a href="#dich-vu">Dịch vụ</a>
+        <a href="#doi-xe">Đội xe</a>
+        <a href="#quy-trinh">Quy trình</a>
+        <a class="btn btn-yellow" href="https://zalo.me/0969563566" target="_blank" rel="noopener">Chat Zalo ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="trang-chu">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Vận chuyển linh hoạt · Hỗ trợ tận tâm</span>
+          <h1>Chuyển hàng an tâm,<br><span>trọn vẹn hành trình</span></h1>
+          <p>Vận Chuyển Kiến Vàng đồng hành cùng bạn trong nhu cầu vận chuyển hàng hóa, chuyển nhà và chuyển văn phòng. Liên hệ để trao đổi nhu cầu và nhận báo giá phù hợp.</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow" href="https://zalo.me/0969563566" target="_blank" rel="noopener">Nhận báo giá qua Zalo ↗</a>
+            <a class="btn btn-dark" href="#dich-vu">Khám phá dịch vụ</a>
+          </div>
+          <div class="trust-row">
+            <span>Tư vấn rõ ràng</span><span>Hỗ trợ theo nhu cầu</span><span>Chi phí minh bạch</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="/xe-tai-thung-hino.jfif" alt="Xe tải thùng Hino phục vụ vận chuyển">
+          <div class="hero-note"><strong>Kiến Vàng</strong><small>Sẵn sàng lắng nghe nhu cầu của bạn</small></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><strong>Đa dạng nhu cầu</strong><span>Hàng hóa, nhà ở, văn phòng</span></div>
+        <div class="stat"><strong>Tư vấn tận tâm</strong><span>Trao đổi trước khi vận chuyển</span></div>
+        <div class="stat"><strong>Báo giá rõ ràng</strong><span>Theo khối lượng và quãng đường</span></div>
+      </div>
+    </div>
+
+    <section id="dich-vu">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Dịch vụ của chúng tôi</span>
+          <h2>Giải pháp vận chuyển cho từng nhu cầu</h2>
+          <p>Chia sẻ điểm đi, điểm đến và loại hàng để Kiến Vàng tư vấn phương án phù hợp.</p>
+        </div>
+        <div class="services">
+          <article class="service-card"><div class="service-icon">📦</div><h3>Vận chuyển hàng hóa</h3><p>Hỗ trợ vận chuyển hàng đóng thùng, hàng kinh doanh và đồ dùng theo thông tin thực tế của chuyến hàng.</p></article>
+          <article class="service-card"><div class="service-icon">🏠</div><h3>Chuyển nhà</h3><p>Trao đổi phương án vận chuyển đồ đạc gia đình, số lượng đồ và điều kiện bốc xếp trước khi thực hiện.</p></article>
+          <article class="service-card"><div class="service-icon">🏢</div><h3>Chuyển văn phòng</h3><p>Hỗ trợ lên kế hoạch chuyển bàn ghế, thiết bị và hồ sơ theo lịch trình phù hợp với khách hàng.</p></article>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section>
+      <div class="container why-grid">
+        <div class="why-panel">
+          <span class="eyebrow">Vì sao chọn Kiến Vàng?</span>
+          <h2>Thông tin rõ ràng ngay từ đầu</h2>
+          <p>Chúng tôi ưu tiên trao đổi kỹ nhu cầu, lộ trình và đặc điểm hàng hóa để hạn chế phát sinh ngoài dự kiến.</p>
+          <div style="margin-top:22px"><a class="btn btn-yellow" href="https://zalo.me/0969563566" target="_blank" rel="noopener">Trao đổi với Kiến Vàng ↗</a></div>
+        </div>
+        <div class="benefits">
+          <div class="benefit"><strong>01. Tư vấn theo nhu cầu</strong><span>Tiếp nhận thông tin điểm đi, điểm đến và loại hàng.</span></div>
+          <div class="benefit"><strong>02. Báo giá trước</strong><span>Thống nhất chi phí và các hạng mục liên quan trước khi thực hiện.</span></div>
+          <div class="benefit"><strong>03. Linh hoạt lịch trình</strong><span>Trao đổi thời gian phù hợp với lịch của khách hàng.</span></div>
+          <div class="benefit"><strong>04. Hỗ trợ xuyên suốt</strong><span>Giữ liên hệ để cập nhật thông tin cần thiết cho chuyến hàng.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quy-trinh" style="background:#fafafa">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Quy trình đơn giản</span>
+          <h2>3 bước để nhận tư vấn vận chuyển</h2>
+          <p>Chỉ cần chuẩn bị một vài thông tin cơ bản để chúng tôi hỗ trợ nhanh hơn.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><h3>Gửi thông tin</h3><p>Cho biết loại hàng, điểm lấy hàng, điểm giao hàng và thời gian dự kiến.</p></article>
+          <article class="step"><h3>Nhận tư vấn & báo giá</h3><p>Kiến Vàng trao đổi phương án, loại xe và chi phí dự kiến theo thông tin cung cấp.</p></article>
+          <article class="step"><h3>Xác nhận lịch</h3><p>Hai bên thống nhất các hạng mục trước khi tiến hành vận chuyển.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div><h2>Bạn cần vận chuyển hàng?</h2><p>Nhắn Zalo cho Kiến Vàng để trao đổi nhu cầu và nhận báo giá.</p></div>
+        <a class="btn btn-yellow" href="https://zalo.me/0969563566" target="_blank" rel="noopener">Liên hệ Zalo: 0969 563 566 ↗</a>
+      </div>
+    </section>
+
+    <section class="contact" id="lien-he">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">Liên hệ ngay</span>
+          <h2 style="font-size:36px;line-height:1.15">Nhận tư vấn cho chuyến hàng của bạn</h2>
+          <p style="color:var(--muted)">Điền thông tin cơ bản, hệ thống sẽ mở Zalo để bạn gửi nội dung đã soạn sẵn. Bạn có thể chỉnh sửa tin nhắn trước khi gửi.</p>
+          <div class="contact-card">
+            <h3>Vận Chuyển Kiến Vàng</h3>
+            <div class="contact-line"><strong>Zalo:</strong> <a style="color:var(--green);font-weight:800" href="https://zalo.me/0969563566" target="_blank" rel="noopener">0969 563 566</a></div>
+            <div class="contact-line"><strong>Dịch vụ:</strong> Vận chuyển hàng hóa, chuyển nhà, chuyển văn phòng</div>
+            <div class="contact-line"><strong>Hình thức tư vấn:</strong> Trao đổi trực tiếp qua Zalo</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Thông tin cần vận chuyển</h3>
+          <form id="quoteForm">
+            <input id="customerName" type="text" placeholder="Tên của bạn" autocomplete="name" required>
+            <input id="customerPhone" type="tel" placeholder="Số điện thoại liên hệ" autocomplete="tel">
+            <select id="serviceType" required>
+              <option value="">Bạn cần dịch vụ nào?</option>
+              <option>Vận chuyển hàng hóa</option>
+              <option>Chuyển nhà</option>
+              <option>Chuyển văn phòng</option>
+              <option>Dịch vụ khác</option>
+            </select>
+            <input id="route" type="text" placeholder="Điểm lấy hàng → Điểm giao hàng" required>
+            <textarea id="details" placeholder="Mô tả hàng hóa, thời gian dự kiến hoặc yêu cầu thêm"></textarea>
+            <button class="btn btn-zalo" type="submit">Gửi yêu cầu qua Zalo ↗</button>
+            <p class="form-hint">Thông tin không được gửi tự động đến máy chủ. Nút sẽ mở Zalo kèm tin nhắn đã soạn sẵn để bạn chủ động gửi.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Vận Chuyển Kiến Vàng. Đồng hành cùng bạn trên mỗi hành trình.</div>
+  </footer>
+  <a class="floating-zalo" href="https://zalo.me/0969563566" target="_blank" rel="noopener" aria-label="Liên hệ Vận Chuyển Kiến Vàng qua Zalo">Chat Zalo · 0969 563 566</a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("quoteForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("customerName").value.trim();
+      const phone = document.getElementById("customerPhone").value.trim();
+      const service = document.getElementById("serviceType").value;
+      const route = document.getElementById("route").value.trim();
+      const details = document.getElementById("details").value.trim();
+      const message = [
+        "Xin chào Vận Chuyển Kiến Vàng, tôi muốn nhận tư vấn/báo giá.",
+        "Tên: " + name,
+        phone ? "Số điện thoại: " + phone : "",
+        "Dịch vụ: " + service,
+        "Lộ trình: " + route,
+        details ? "Thông tin thêm: " + details : ""
+      ].filter(Boolean).join("\n");
+      const zaloUrl = "https://zalo.me/0969563566";
+      // Mở trang Zalo; người dùng có thể dán tin nhắn đã sao chép vào cuộc trò chuyện.
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(message).catch(function(){});
+      }
+      window.open(zaloUrl, "_blank", "noopener");
+      alert("Đã chuẩn bị nội dung yêu cầu. Nếu tin nhắn chưa được sao chép tự động, hãy sao chép thông tin bạn vừa nhập và gửi trong cuộc trò chuyện Zalo.");
+    });
+  </script>
+</body>
+</html>
